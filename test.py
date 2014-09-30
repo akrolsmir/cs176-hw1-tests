@@ -36,7 +36,7 @@ class MyTest(unittest.TestCase):
 
     def test_shortest_non_substring(self):
         self.assertEqual(shortest_non_substring("GCGTTCAACTCGG"), 'AG')
-        self.assertEqual(shortest_non_substring(actg_1k), 'AACGA')
+        self.assertEqual(shortest_non_substring(actg_1k), 'TCCG')
         # self.assertEqual(shortest_non_substring(az09_40k), '002')
 
 unittest.main(verbosity=1)
