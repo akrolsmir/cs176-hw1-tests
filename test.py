@@ -12,6 +12,9 @@ class MyTest(unittest.TestCase):
         self.assertEqual(multiple_pattern_match(["AATCGGGTTCAATCGGGGT", "ATCG", "GGGT"]), [1, 4, 11, 15])
         self.assertEqual(multiple_pattern_match([actg_10k, "GATTACA", "TATCTT"]), [2821, 6539, 7564])
         self.assertEqual(multiple_pattern_match([actg_1k, "QQQ"]), [])
+        self.assertEqual(multiple_pattern_match(['BARBARA', 'HI']), [])
+        self.assertEqual(multiple_pattern_match(['BARBARA', 'AR', 'BAR']), [0, 1, 3, 4])
+        self.assertEqual(multiple_pattern_match(['BARBARAB', 'B']), [0, 3, 7])
 
     def test_longest_repeat(self):
         self.assertEqual(longest_repeat("ATATCGTTTTATCGTT"), 'TATCGTT')
@@ -38,5 +41,13 @@ class MyTest(unittest.TestCase):
         self.assertEqual(shortest_non_substring("GCGTTCAACTCGG"), 'AG')
         self.assertEqual(shortest_non_substring(actg_1k), 'TCCG')
         # self.assertEqual(shortest_non_substring(az09_40k), '002')
+        self.assertEqual(shortest_non_substring("GCGTTCAACTCAGG"), 'AT')
+        self.assertEqual(shortest_non_substring("GCGTTCAACTCAGGAT"), 'CC')
+        self.assertEqual(shortest_non_substring("GCGTTCAACTCAGGATCC"), 'TA')
+        self.assertEqual(shortest_non_substring("GCGTTCAACTCAGGATCCTA"), 'TG')
+        self.assertEqual(shortest_non_substring("GCGTTCAACTCAGGATCCTATG"), 'AAA')
+        self.assertEqual(shortest_non_substring("A"), 'AA')
+        self.assertEqual(shortest_non_substring("AB"), 'AA')
+        self.assertEqual(shortest_non_substring("AABA"), 'BB')
 
 unittest.main(verbosity=1)
