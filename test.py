@@ -19,15 +19,20 @@ class MyTest(unittest.TestCase):
     def test_longest_repeat(self):
         self.assertEqual(longest_repeat("ATATCGTTTTATCGTT"), 'TATCGTT')
         self.assertEqual(longest_repeat(actg_1k), 'CTGATTTG')
+        self.assertEqual(longest_repeat(actg_5k), 'AGTCTGTCTCGTCA')
         # self.assertEqual(longest_repeat(az09_40k), '3YP30R')
 
     def test_longest_common_substring(self):
         self.assertEqual(longest_common_substring("TCGGTAGATTGCGCCCACTC", "AGGGGCTCGCAGTGTAAGAA"), 'AGA')
         self.assertEqual(longest_common_substring(actg_1k, actg_5k), 'ACGCGAAGGC')
+        self.assertEqual(longest_common_substring(actg_5k, actg_10k), 'CTGACATGTGAAGC')
 
     def test_longest_palindromic_substring(self):
-        self.assertEqual(longest_palindromic_substring(actg_1k), 'GATATCTCTATAG')
+        self.assertEqual(longest_palindromic_substring("A"), 'A')
+        self.assertEqual(longest_palindromic_substring("AGA"), 'AGA')
         self.assertEqual(longest_palindromic_substring("GCGTTCAACTCGG"), 'TCAACT')
+        self.assertEqual(longest_palindromic_substring(actg_1k), 'GATATCTCTATAG')
+        self.assertEqual(longest_palindromic_substring(actg_5k), 'ATGTCGGCTGTA')
 
     def test_shortest_non_shared_substring(self):
         self.assertEqual(shortest_non_shared_substring("CCAAGCTGCTAGAGG", "CATGCTGGGCTGGCT"), 'AA')
@@ -36,6 +41,8 @@ class MyTest(unittest.TestCase):
     def test_longest_k_repeat_substring(self):
         self.assertEqual(longest_k_repeat_substring(3, "AAACCACACACAAA"), 'CACA')
         self.assertEqual(longest_k_repeat_substring(5, actg_1k), 'ATTTG')
+        self.assertEqual(longest_k_repeat_substring(10, actg_5k), 'ACTAT')
+        self.assertEqual(longest_k_repeat_substring(1, "HELLO WORLD"), 'HELLO WORLD')
 
     def test_shortest_non_substring(self):
         self.assertEqual(shortest_non_substring("GCGTTCAACTCGG"), 'AG')
@@ -50,5 +57,16 @@ class MyTest(unittest.TestCase):
         self.assertEqual(shortest_non_substring("A"), 'AA')
         self.assertEqual(shortest_non_substring("AB"), 'AA')
         self.assertEqual(shortest_non_substring("AABA"), 'BB')
+
+#     def test_longest_repeat_time(self, trials=5):
+#         import timeit
+#         for n in [1000, 2000, 4000, 8000]:#, 100000, 1000000]:
+#             t = timeit.Timer("""longest_repeat(s)""", setup="""
+# import random
+# from pa1 import longest_repeat
+# s = ''.join(random.choice('{alphabet}') for i in range({size}))
+#             """.format(size=n, alphabet='ACTG'))
+#             total_time = t.timeit(trials)
+#             print "Size: " + str(n) + ". Average time = " + str(total_time / trials)
 
 unittest.main(verbosity=1)
