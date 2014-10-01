@@ -17,7 +17,7 @@ class MyTest(unittest.TestCase):
         self.assertEqual(multiple_pattern_match(['BARBARAB', 'B']), [0, 3, 7])
 
         self.assertEqual(multiple_pattern_match(["TTTAAACCCGGG", "A", "C", "G", "T"]), [i for i in range(len("TTTAAACCCGGG"))])
-        self.assertEqual(multiple_pattern_match(["AJSKDKJASD", ""]), [])
+        self.assertEqual(multiple_pattern_match(["AJSKDKJASD", ""]), range(len("AJSKDKJASD")))
         self.assertEqual(multiple_pattern_match(["ABABABABA", "AB"]), [0, 2, 4, 6])
         self.assertEqual(multiple_pattern_match(["ABABABABACC", "ABA", "CC"]), [0, 2, 4, 6, 9])
         self.assertEqual(multiple_pattern_match(["AAAAAAAAAA", "AAA"]), [0, 1, 2, 3, 4, 5, 6, 7])
