@@ -69,7 +69,7 @@ class MyTest(unittest.TestCase):
         self.assertEqual(longest_k_repeat_substring(4, "BADFHZACERTAPOLKANMMM"), "A")
         self.assertEqual(longest_k_repeat_substring(4, "ABC"), "")
         self.assertEqual(longest_k_repeat_substring(5, actg_1k), 'ATTTG')
-        self.assertEqual(longest_k_repeat_substring(10, actg_5k), 'AAACT')
+        self.assertEqual(longest_k_repeat_substring(10, actg_5k), 'ACTAT')
         self.assertEqual(longest_k_repeat_substring(1, "HELLO1WORLD"), 'HELLO1WORLD')
 
     def test_shortest_non_substring(self):
